@@ -1,1 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
+<title>Gyani Store - Admin Panel</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f6fb;
+    color:#111827;
+}
+
+/* HEADER */
+
+header{
+    background:linear-gradient(135deg,#0f172a,#312e81,#2563eb);
+    color:white;
+    padding:20px;
+}
+
+.header{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+}
+
+.store-btn{
+    text-decoration:none;
+    color:white;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.2);
+    padding:10px 15px;
+    border-radius:10px;
+    font-weight:700;
+}
+
+/* CONTAINER */
+
+.container{
+    max-width:1200px;
+    margin:25px auto;
+    padding:0 15px;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-bottom:22px;
+}
+
+.stat{
+    background:white;
+    padding:20px;
+    border-radius:17px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 8px 30px rgba(0,0,0,.04);
+}
+
+.stat span{
+    color:#6b7280;
+    font-size:12px;
+    font-weight:700;
+}
+
+.stat strong{
+    display:block;
+    margin-top:8px;
+    font-size:27px;
+}
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:380px 1fr;
+    gap:20px;
+}
+
+/* CARD */
+
+.card{
+    background:white;
+    padding:22px;
+    border-radius:18px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 8px 30px rgba(0,0,0,.04);
+}
+
+.card h2{
+    margin-bottom:18px;
+    font-size:20px;
+}
+
+/* FORM */
+
+label{
+    display:block;
+    margin-top:12px;
+    margin-bottom:6px;
+    font-size:12px;
+    font-weight:800;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #d9dee8;
+    border-radius:10px;
+    outline:none;
+    font-size:14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#6366f1;
+    box-shadow:0 0 0 3px rgba(99,102,241,.1);
+}
+
+textarea{
+    resize:vertical;
+}
+
+/* BUTTONS */
+
+.btn{
+    border:0;
+    padding:11px 15px;
+    border-radius:10px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.primary{
+    background:#4f46e5;
+    color:white;
+}
+
+.secondary{
+    background:#eef2ff;
+    color:#3730a3;
+}
+
+.danger{
+    background:#fee2e2;
+    color:#b91c1c;
+}
+
+.btn:hover{
+    opacity:.9;
+}
+
+/* TABLE */
+
+.table-wrap{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,
+td{
+    padding:12px 8px;
+    border-bottom:1px solid #eee;
+    text-align:left;
+    font-size:13px;
+    white-space:nowrap;
+}
+
+th{
+    color:#6b7280;
+    font-size:11px;
+    text-transform:uppercase;
+}
+
+.product-img{
+    width:55px;
+    height:55px;
+    object-fit:contain;
+    border-radius:9px;
+    background:#f8fafc;
+}
+
+.actions{
+    display:flex;
+    gap:7px;
+}
+
+.empty{
+    padding:30px;
+    text-align:center;
+    color:#6b7280;
+}
+
+/* ORDERS */
+
+.orders-card{
+    margin-top:20px;
+}
+
+/* NOTE */
+
+.note{
+    margin-top:20px;
+    padding:15px;
+    background:#fff7ed;
+    border:1px solid #fed7aa;
+    border-radius:12px;
+    color:#7c2d12;
+    font-size:13px;
+    line-height:1.6;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:550px){
+
+    .header{
+        gap:12px;
+    }
+
+    .logo{
+        font-size:19px;
+    }
+
+    .store-btn{
+        padding:8px 10px;
+        font-size:12px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .stat{
+        padding:15px;
+    }
+
+    .stat strong{
+        font-size:22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="header">
+
+<div class="logo">
+GYANI STORE • ADMIN
+</div>
+
+<a href="index.html" class="store-btn">
+← Open Store
+</a>
+
+</div>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- DASHBOARD -->
+
+<div class="stats">
+
+<div class="stat">
+<span>TOTAL PRODUCTS</span>
+<strong id="productCount">0</strong>
+</div>
+
+<div class="stat">
+<span>TOTAL ORDERS</span>
+<strong id="orderCount">0</strong>
+</div>
+
+<div class="stat">
+<span>CART ITEMS</span>
+<strong id="cartCount">0</strong>
+</div>
+
+<div class="stat">
+<span>STORE STATUS</span>
+<strong style="color:#16a34a">
+● LIVE
+</strong>
+</div>
+
+</div>
+
+
+
+<div class="grid">
+
+
+<!-- ADD PRODUCT -->
+
+<div class="card">
+
+<h2 id="formTitle">
+➕ Add Product
+</h2>
+
+<input
+type="hidden"
+id="editId"
+>
+
+
+<label>
+Product Name
+</label>
+
+<input
+id="productName"
+placeholder="Premium Wireless Earbuds"
+>
+
+
+<label>
+Category
+</label>
+
+<select id="category">
+
+<option value="electronics">
+Electronics
+</option>
+
+<option value="mobile">
+Mobile
+</option>
+
+<option value="audio">
+Audio
+</option>
+
+<option value="watch">
+Smart Watch
+</option>
+
+<option value="accessories">
+Accessories
+</option>
+
+<option value="gaming">
+Gaming
+</option>
+
+</select>
+
+
+<label>
+Price ₹
+</label>
+
+<input
+id="price"
+type="number"
+placeholder="2499"
+>
+
+
+<label>
+Old Price ₹
+</label>
+
+<input
+id="oldPrice"
+type="number"
+placeholder="3999"
+>
+
+
+<label>
+Discount
+</label>
+
+<input
+id="discount"
+placeholder="35% OFF"
+>
+
+
+<label>
+Rating
+</label>
+
+<input
+id="rating"
+type="number"
+min="1"
+max="5"
+step="0.1"
+value="5"
+>
+
+
+<label>
+Product Image URL
+</label>
+
+<input
+id="image"
+placeholder="https://example.com/product.jpg"
+>
+
+
+<label>
+Description
+</label>
+
+<textarea
+id="description"
+rows="4"
+placeholder="Product description..."
+></textarea>
+
+
+<br>
+
+
+<button
+class="btn primary"
+onclick="saveProduct()"
+>
+Save Product
+</button>
+
+<button
+class="btn secondary"
+onclick="resetForm()"
+>
+Clear
+</button>
+
+</div>
+
+
+
+<!-- PRODUCTS -->
+
+<div class="card">
+
+<h2>
+📦 Manage Products
+</h2>
+
+<div
+class="table-wrap"
+id="productTable"
+>
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ORDERS -->
+
+<div class="card orders-card">
+
+<h2>
+🧾 Customer Orders
+</h2>
+
+<div
+class="table-wrap"
+id="ordersTable"
+>
+</div>
+
+</div>
+
+
+<div class="note">
+
+<strong>Important:</strong>
+
+This version saves data in your browser using
+<strong>localStorage</strong>.
+
+For a real online store, admin changes need a
+secure database/backend such as Firebase or Supabase
+so products and orders can be shared with all customers.
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* STORAGE */
+
+const PRODUCT_KEY =
+"gyani_store_products";
+
+const ORDER_KEY =
+"gyani_store_orders";
+
+const CART_KEY =
+"gyani_store_cart";
+
+
+/* DEFAULT PRODUCTS */
+
+const defaultProducts = [
+
+{
+id:1,
+name:"Premium Smartphone 5G",
+category:"mobile",
+price:24999,
+oldPrice:32999,
+discount:"25% OFF",
+rating:5,
+image:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80",
+description:"Premium 5G smartphone."
+},
+
+{
+id:2,
+name:"Smart Watch Series 11 GPS",
+category:"watch",
+price:39999,
+oldPrice:48999,
+discount:"18% OFF",
+rating:5,
+image:"https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=600&q=80",
+description:"Premium GPS smartwatch."
+},
+
+{
+id:3,
+name:"Premium Wireless Earbuds",
+category:"audio",
+price:2499,
+oldPrice:4199,
+discount:"40% OFF",
+rating:4.5,
+image:"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=600&q=80",
+description:"Premium wireless earbuds."
+}
+
+];
+
+
+if(!localStorage.getItem(PRODUCT_KEY)){
+
+localStorage.setItem(
+PRODUCT_KEY,
+JSON.stringify(defaultProducts)
+);
+
+}
+
+
+/* GET PRODUCTS */
+
+function getProducts(){
+
+return JSON.parse(
+localStorage.getItem(PRODUCT_KEY) || "[]"
+);
+
+}
+
+
+/* GET ORDERS */
+
+function getOrders(){
+
+return JSON.parse(
+localStorage.getItem(ORDER_KEY) || "[]"
+);
+
+}
+
+
+/* ESCAPE TEXT */
+
+function safe(text){
+
+return String(text || "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* RENDER */
+
+function render(){
+
+const products =
+getProducts();
+
+const orders =
+getOrders();
+
+let cart =
+JSON.parse(
+localStorage.getItem(CART_KEY) || "[]"
+);
+
+
+document.getElementById("productCount")
+.innerText =
+products.length;
+
+
+document.getElementById("orderCount")
+.innerText =
+orders.length;
+
+
+document.getElementById("cartCount")
+.innerText =
+cart.length;
+
+
+
+/* PRODUCTS */
+
+if(products.length === 0){
+
+document.getElementById("productTable").innerHTML =
+`
+<div class="empty">
+No products available.
+</div>
+`;
+
+}else{
+
+let html = `
+
+<table>
+
+<tr>
+
+<th>Product</th>
+<th>Price</th>
+<th>Category</th>
+<th>Actions</th>
+
+</tr>
+`;
+
+
+products.forEach(product=>{
+
+html += `
+
+<tr>
+
+<td>
+
+<img
+class="product-img"
+src="${safe(product.image)}"
+>
+
+<br>
+
+<strong>
+${safe(product.name)}
+</strong>
+
+</td>
+
+
+<td>
+
+<strong>
+₹${Number(product.price).toLocaleString("en-IN")}
+</strong>
+
+<br>
+
+<small>
+<s>
+₹${Number(product.oldPrice || 0).toLocaleString("en-IN")}
+</s>
+</small>
+
+</td>
+
+
+<td>
+${safe(product.category)}
+</td>
+
+
+<td>
+
+<div class="actions">
+
+<button
+class="btn secondary"
+onclick="editProduct(${product.id})"
+>
+Edit
+</button>
+
+<button
+class="btn danger"
+onclick="deleteProduct(${product.id})"
+>
+Delete
+</button>
+
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+
+html += "</table>";
+
+document.getElementById("productTable")
+.innerHTML =
+html;
+
+}
+
+
+
+/* ORDERS */
+
+if(orders.length === 0){
+
+document.getElementById("ordersTable").innerHTML =
+
+`
+<div class="empty">
+No customer orders yet.
+</div>
+`;
+
+}else{
+
+let html = `
+
+<table>
+
+<tr>
+<th>Customer</th>
+<th>Phone</th>
+<th>Total</th>
+<th>Payment</th>
+<th>Status</th>
+</tr>
+
+`;
+
+
+orders.forEach(order=>{
+
+html += `
+
+<tr>
+
+<td>
+<strong>
+${safe(order.name)}
+</strong>
+</td>
+
+<td>
+${safe(order.phone)}
+</td>
+
+<td>
+₹${Number(order.total).toLocaleString("en-IN")}
+</td>
+
+<td>
+${safe(order.payment)}
+</td>
+
+<td>
+${safe(order.status || "Pending")}
+</td>
+
+</tr>
+
+`;
+
+});
+
+
+html += "</table>";
+
+document.getElementById("ordersTable")
+.innerHTML =
+html;
+
+}
+
+}
+
+
+
+/* SAVE PRODUCT */
+
+function saveProduct(){
+
+const id =
+Number(
+document.getElementById("editId").value
+) || Date.now();
+
+
+const product = {
+
+id:id,
+
+name:
+document.getElementById("productName")
+.value.trim(),
+
+category:
+document.getElementById("category")
+.value,
+
+price:
+Number(
+document.getElementById("price").value
+),
+
+oldPrice:
+Number(
+document.getElementById("oldPrice").value
+) || 0,
+
+discount:
+document.getElementById("discount")
+.value.trim(),
+
+rating:
+Number(
+document.getElementById("rating").value
+) || 5,
+
+image:
+document.getElementById("image")
+.value.trim(),
+
+description:
+document.getElementById("description")
+.value.trim()
+
+};
+
+
+if(
+!product.name ||
+!product.price ||
+!product.image
+){
+
+alert(
+"Product Name, Price and Image URL are required."
+);
+
+return;
+
+}
+
+
+let products =
+getProducts();
+
+
+const index =
+products.findIndex(
+item=>item.id === id
+);
+
+
+if(index !== -1){
+
+products[index] =
+product;
+
+}else{
+
+products.push(product);
+
+}
+
+
+localStorage.setItem(
+PRODUCT_KEY,
+JSON.stringify(products)
+);
+
+
+resetForm();
+
+render();
+
+
+alert(
+"Product saved successfully!"
+);
+
+}
+
+
+
+/* EDIT */
+
+function editProduct(id){
+
+const product =
+getProducts().find(
+item=>item.id === id
+);
+
+
+if(!product){
+
+return;
+
+}
+
+
+document.getElementById("editId")
+.value =
+product.id;
+
+
+document.getElementById("productName")
+.value =
+product.name;
+
+
+document.getElementById("category")
+.value =
+product.category;
+
+
+document.getElementById("price")
+.value =
+product.price;
+
+
+document.getElementById("oldPrice")
+.value =
+product.oldPrice;
+
+
+document.getElementById("discount")
+.value =
+product.discount;
+
+
+document.getElementById("rating")
+.value =
+product.rating;
+
+
+document.getElementById("image")
+.value =
+product.image;
+
+
+document.getElementById("description")
+.value =
+product.description;
+
+
+document.getElementById("formTitle")
+.innerText =
+"✏️ Edit Product";
+
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+
+/* DELETE */
+
+function deleteProduct(id){
+
+if(
+!confirm(
+"Are you sure you want to delete this product?"
+)
+){
+
+return;
+
+}
+
+
+const products =
+getProducts()
+.filter(
+product=>product.id !== id
+);
+
+
+localStorage.setItem(
+PRODUCT_KEY,
+JSON.stringify(products)
+);
+
+
+render();
+
+}
+
+
+
+/* RESET */
+
+function resetForm(){
+
+document.getElementById("editId")
+.value = "";
+
+document.getElementById("productName")
+.value = "";
+
+document.getElementById("category")
+.value = "electronics";
+
+document.getElementById("price")
+.value = "";
+
+document.getElementById("oldPrice")
+.value = "";
+
+document.getElementById("discount")
+.value = "";
+
+document.getElementById("rating")
+.value = "5";
+
+document.getElementById("image")
+.value = "";
+
+document.getElementById("description")
+.value = "";
+
+document.getElementById("formTitle")
+.innerText =
+"➕ Add Product";
+
+}
+
+
+
+/* START */
+
+render();
+
+</script>
+
+</body>
+  </html>
