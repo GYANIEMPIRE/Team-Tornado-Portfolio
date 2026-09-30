@@ -1,16 +1,12 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Team Tornado Portfolio</title>
+<title>Gyani Store — Premium Shopping</title>
 
 <style>
-
-/* =========================
-   RESET
-========================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 *{
     margin:0;
@@ -23,1515 +19,1499 @@ html{
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#03040a;
+    font-family:Inter,Arial,sans-serif;
+    background:#f5f7fb;
+    color:#111827;
+}
+
+/* TOP BAR */
+.topbar{
+    background:#101827;
     color:#fff;
-    overflow-x:hidden;
+    text-align:center;
+    padding:9px 15px;
+    font-size:13px;
+    font-weight:600;
 }
 
-
-/* =========================
-   3D BACKGROUND
-========================= */
-
-body::before{
-    content:"";
-    position:fixed;
-    width:600px;
-    height:600px;
-    top:-220px;
-    left:-180px;
-    background:radial-gradient(
-        circle,
-        rgba(125,50,255,.30),
-        transparent 70%
-    );
-    filter:blur(35px);
-    z-index:-5;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    width:650px;
-    height:650px;
-    right:-250px;
-    bottom:-250px;
-    background:radial-gradient(
-        circle,
-        rgba(0,190,255,.22),
-        transparent 70%
-    );
-    filter:blur(35px);
-    z-index:-5;
-}
-
-.grid{
-    position:fixed;
-    inset:0;
-    z-index:-6;
-    opacity:.18;
-    background-image:
-        linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
-    background-size:55px 55px;
-    transform:
-        perspective(500px)
-        rotateX(60deg)
-        scale(1.8);
-    transform-origin:center bottom;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
+/* HEADER */
 header{
-    width:92%;
-    max-width:1200px;
-    margin:25px auto;
-    padding:18px 24px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:20px;
-
-    background:rgba(255,255,255,.06);
-    backdrop-filter:blur(18px);
-
-    box-shadow:
-        0 20px 70px rgba(0,0,0,.5);
-
+    background:#fff;
     position:sticky;
-    top:15px;
-    z-index:100;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 20px rgba(0,0,0,.08);
+}
+
+.nav{
+    max-width:1250px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    gap:25px;
 }
 
 .logo{
-    font-size:21px;
+    font-size:25px;
     font-weight:900;
-    letter-spacing:1px;
-}
-
-.logo span{
-    color:#a96cff;
-}
-
-nav{
-    display:flex;
-    gap:20px;
-}
-
-nav a{
-    color:#aaa;
-    text-decoration:none;
-    font-size:13px;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#fff;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    min-height:80vh;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-    padding:70px 20px;
-}
-
-.badge{
-    padding:9px 18px;
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:50px;
-
-    color:#c6a7ff;
-    background:rgba(255,255,255,.05);
-
-    font-size:12px;
-    letter-spacing:1px;
-
-    margin-bottom:25px;
-}
-
-.hero h1{
-    font-size:clamp(48px,9vw,95px);
-    line-height:.95;
-    letter-spacing:-5px;
-    font-weight:1000;
-}
-
-.hero h1 span{
-    background:linear-gradient(
-        90deg,
-        #fff,
-        #a45cff,
-        #00d9ff
-    );
-
+    white-space:nowrap;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
     -webkit-background-clip:text;
-    background-clip:text;
     color:transparent;
 }
 
-.hero p{
-    max-width:680px;
-    margin-top:28px;
+.search{
+    flex:1;
+    position:relative;
+}
 
-    color:#8d8d8d;
-    line-height:1.8;
-    font-size:15px;
+.search input{
+    width:100%;
+    padding:14px 48px 14px 18px;
+    border:2px solid #e5e7eb;
+    border-radius:13px;
+    outline:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+.search input:focus{
+    border-color:#6366f1;
+    box-shadow:0 0 0 4px rgba(99,102,241,.1);
+}
+
+.search button{
+    position:absolute;
+    right:7px;
+    top:6px;
+    border:0;
+    width:35px;
+    height:35px;
+    border-radius:10px;
+    background:#eef2ff;
+    cursor:pointer;
+    font-size:17px;
+}
+
+.nav-btn{
+    border:0;
+    background:#f3f4f6;
+    padding:11px 15px;
+    border-radius:11px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.cart-btn{
+    background:#111827;
+    color:white;
+    position:relative;
+}
+
+.cart-count{
+    position:absolute;
+    top:-7px;
+    right:-7px;
+    background:#ef4444;
+    width:21px;
+    height:21px;
+    border-radius:50%;
+    font-size:11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* CATEGORY */
+.categories{
+    background:white;
+    border-top:1px solid #eee;
+    border-bottom:1px solid #eee;
+    overflow:auto;
+}
+
+.category-inner{
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    gap:10px;
+    padding:10px 20px;
+}
+
+.category-inner button{
+    white-space:nowrap;
+    border:0;
+    background:#f3f4f6;
+    padding:9px 17px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.category-inner button:hover,
+.category-inner button.active{
+    background:#111827;
+    color:white;
+}
+
+/* HERO */
+.hero{
+    max-width:1250px;
+    margin:25px auto;
+    padding:20px;
+}
+
+.hero-box{
+    min-height:350px;
+    border-radius:28px;
+    padding:55px;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    position:relative;
+    background:
+      radial-gradient(circle at 80% 20%,rgba(129,140,248,.8),transparent 30%),
+      linear-gradient(120deg,#111827,#312e81,#2563eb);
+    color:white;
+}
+
+.hero-content{
+    max-width:600px;
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.25);
+    padding:8px 13px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(35px,5vw,62px);
+    line-height:1.02;
+    margin-bottom:17px;
+}
+
+.hero p{
+    color:#e5e7eb;
+    line-height:1.7;
+    max-width:520px;
 }
 
 .hero-btn{
     display:inline-block;
-    margin-top:32px;
-
-    padding:15px 28px;
-
-    border-radius:14px;
-
-    color:white;
+    margin-top:25px;
+    padding:14px 23px;
+    background:white;
+    color:#111827;
     text-decoration:none;
-
-    background:
-        linear-gradient(
-            135deg,
-            #762cff,
-            #008cff
-        );
-
-    box-shadow:
-        0 15px 50px rgba(106,35,255,.35);
-
-    transition:.3s;
-}
-
-.hero-btn:hover{
-    transform:translateY(-5px);
-}
-
-
-/* =========================
-   SECTIONS
-========================= */
-
-section{
-    width:92%;
-    max-width:1200px;
-    margin:110px auto;
-}
-
-.section-heading{
-    text-align:center;
-    margin-bottom:45px;
-}
-
-.section-heading h2{
-    font-size:38px;
-    margin-bottom:10px;
-}
-
-.section-heading p{
-    color:#777;
-    font-size:14px;
-}
-
-
-/* =========================
-   OWNER
-========================= */
-
-.owner{
-    display:grid;
-    grid-template-columns:300px 1fr;
-    gap:35px;
-
-    padding:35px;
-
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:28px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.08),
-            rgba(255,255,255,.025)
-        );
-
-    backdrop-filter:blur(20px);
-
-    box-shadow:
-        0 30px 90px rgba(0,0,0,.5);
-
-    transition:.4s;
-}
-
-.owner:hover{
-    transform:translateY(-8px);
-}
-
-.owner-image{
-    min-height:280px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    border-radius:22px;
-
-    background:
-        radial-gradient(
-            circle at 30% 30%,
-            #a45cff,
-            #171022 60%,
-            #050509
-        );
-
-    border:1px solid rgba(255,255,255,.1);
-
-    font-size:80px;
-}
-
-.owner-content{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-
-.owner-content h3{
-    font-size:34px;
-    margin-bottom:8px;
-}
-
-.owner-role{
-    color:#a96cff;
-    font-size:13px;
-    font-weight:bold;
-    margin-bottom:22px;
-}
-
-.owner-content p{
-    color:#999;
-    line-height:1.8;
-    margin-bottom:15px;
-}
-
-
-/* =========================
-   CARDS
-========================= */
-
-.cards{
-    display:grid;
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap:25px;
-}
-
-.card{
-    padding:16px;
-
-    border-radius:24px;
-
-    border:1px solid rgba(255,255,255,.1);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.075),
-            rgba(255,255,255,.025)
-        );
-
-    backdrop-filter:blur(18px);
-
-    box-shadow:
-        0 20px 70px rgba(0,0,0,.45);
-
-    transition:
-        transform .4s,
-        border .4s,
-        box-shadow .4s;
-
-    animation:cardFloat 5s ease-in-out infinite;
-}
-
-.card:nth-child(2){
-    animation-delay:.5s;
-}
-
-.card:nth-child(3){
-    animation-delay:1s;
-}
-
-.card:hover{
-    transform:
-        translateY(-12px)
-        perspective(700px)
-        rotateX(3deg);
-
-    border-color:rgba(160,90,255,.5);
-
-    box-shadow:
-        0 30px 90px rgba(100,30,255,.22);
-}
-
-@keyframes cardFloat{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-5px);
-    }
-}
-
-
-/* =========================
-   MEDIA
-========================= */
-
-.media{
-    width:100%;
-    aspect-ratio:16/10;
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    background:#08090f;
-
-    border:1px solid rgba(255,255,255,.07);
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.media img,
-.media video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.placeholder{
-    color:#444;
-    font-size:45px;
-}
-
-.card h3{
-    margin:18px 5px 8px;
-    font-size:18px;
-}
-
-.card p{
-    margin:0 5px 8px;
-
-    color:#777;
-
-    font-size:13px;
-    line-height:1.6;
-}
-
-
-/* =========================
-   PLATFORM TAG
-========================= */
-
-.tag{
-    display:inline-block;
-
-    margin:10px 5px 0;
-
-    padding:6px 11px;
-
-    border-radius:30px;
-
-    background:rgba(255,255,255,.07);
-
-    color:#aaa;
-
-    font-size:11px;
-}
-
-
-/* =========================
-   BEFORE AFTER
-========================= */
-
-.before-after{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-}
-
-.ba-card{
-    padding:18px;
-
-    border-radius:25px;
-
-    border:1px solid rgba(255,255,255,.1);
-
-    background:rgba(255,255,255,.05);
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.45);
-
-    transition:.4s;
-}
-
-.ba-card:hover{
-    transform:translateY(-8px);
-}
-
-.ba-label{
-    text-align:center;
-
-    margin-bottom:15px;
-
-    font-weight:bold;
-    letter-spacing:2px;
-
-    color:#aaa;
-}
-
-.ba-card img{
-    width:100%;
-    display:block;
-
-    border-radius:18px;
-
-    border:1px solid rgba(255,255,255,.08);
-}
-
-
-/* =========================
-   ADMIN PANEL
-========================= */
-
-.admin-panel{
-    padding:30px;
-
-    border-radius:28px;
-
-    border:1px solid rgba(255,255,255,.12);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.07),
-            rgba(255,255,255,.02)
-        );
-
-    backdrop-filter:blur(20px);
-
-    box-shadow:
-        0 30px 90px rgba(0,0,0,.5);
-}
-
-.admin-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-}
-
-.admin-box{
-    padding:22px;
-
-    border-radius:20px;
-
-    background:#06070d;
-
-    border:1px solid rgba(255,255,255,.08);
-}
-
-.admin-box h3{
-    margin-bottom:15px;
-    font-size:18px;
-}
-
-.admin-box p{
-    color:#666;
-    font-size:12px;
-    line-height:1.6;
-    margin-bottom:15px;
-}
-
-input,
-textarea{
-    width:100%;
-
-    padding:13px;
-
-    margin:6px 0;
-
     border-radius:12px;
-
-    border:1px solid rgba(255,255,255,.1);
-
-    background:rgba(255,255,255,.04);
-
-    color:#fff;
-
-    outline:none;
+    font-weight:800;
 }
 
-textarea{
-    min-height:90px;
-    resize:vertical;
+/* DEALS */
+.section{
+    max-width:1250px;
+    margin:35px auto;
+    padding:0 20px;
 }
 
-input:focus,
-textarea:focus{
-    border-color:#914cff;
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
 }
 
-.admin-btn{
-    margin-top:8px;
+.section-head h2{
+    font-size:27px;
+}
 
-    padding:12px 20px;
-
-    border:none;
-    border-radius:12px;
-
-    color:white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #762cff,
-            #008cff
-        );
-
+.view{
+    color:#4f46e5;
+    font-weight:700;
     cursor:pointer;
 }
 
+/* DEAL CARDS */
+.deals{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
 
-/* =========================
-   FOOTER
-========================= */
+.deal{
+    padding:22px;
+    min-height:140px;
+    border-radius:18px;
+    color:white;
+    overflow:hidden;
+    position:relative;
+}
 
-footer{
-    margin-top:120px;
+.deal:nth-child(1){
+    background:linear-gradient(135deg,#7c3aed,#4f46e5);
+}
 
-    padding:60px 20px;
+.deal:nth-child(2){
+    background:linear-gradient(135deg,#0891b2,#2563eb);
+}
 
-    text-align:center;
+.deal:nth-child(3){
+    background:linear-gradient(135deg,#db2777,#9333ea);
+}
 
-    border-top:1px solid rgba(255,255,255,.08);
+.deal:nth-child(4){
+    background:linear-gradient(135deg,#ea580c,#dc2626);
+}
 
-    color:#666;
+.deal h3{
+    font-size:20px;
+    margin-bottom:8px;
+}
 
+.deal p{
+    font-size:13px;
+    opacity:.9;
+}
+
+/* PRODUCTS */
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.product{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:19px;
+    overflow:hidden;
+    transition:.3s;
+    position:relative;
+}
+
+.product:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 45px rgba(15,23,42,.12);
+}
+
+.product-img{
+    height:220px;
+    background:#f8fafc;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    position:relative;
+}
+
+.product-img img{
+    max-width:100%;
+    max-height:190px;
+    object-fit:contain;
+}
+
+.discount{
+    position:absolute;
+    left:12px;
+    top:12px;
+    background:#dc2626;
+    color:#fff;
+    padding:6px 9px;
+    border-radius:7px;
+    font-size:11px;
+    font-weight:800;
+}
+
+.heart{
+    position:absolute;
+    right:12px;
+    top:12px;
+    border:0;
+    background:white;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    cursor:pointer;
+    box-shadow:0 3px 10px rgba(0,0,0,.1);
+    font-size:17px;
+}
+
+.product-info{
+    padding:16px;
+}
+
+.product-category{
+    color:#6b7280;
+    font-size:11px;
+    font-weight:700;
+    text-transform:uppercase;
+}
+
+.product h3{
+    font-size:15px;
+    margin:7px 0;
+    line-height:1.4;
+}
+
+.rating{
+    color:#f59e0b;
     font-size:13px;
 }
 
-footer strong{
-    color:#aaa;
+.price{
+    margin-top:10px;
 }
 
+.price strong{
+    font-size:21px;
+}
 
-/* =========================
-   MOBILE
-========================= */
+.old{
+    color:#9ca3af;
+    text-decoration:line-through;
+    margin-left:7px;
+    font-size:12px;
+}
 
-@media(max-width:850px){
+.add{
+    width:100%;
+    border:0;
+    padding:12px;
+    margin-top:13px;
+    background:#111827;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:800;
+}
 
-    header{
-        width:94%;
+.add:hover{
+    background:#4f46e5;
+}
+
+/* ABOUT */
+.about{
+    background:linear-gradient(135deg,#111827,#1e1b4b);
+    color:white;
+    border-radius:25px;
+    padding:45px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.about h2{
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.about p{
+    color:#d1d5db;
+    line-height:1.8;
+}
+
+.owner-card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);
+    padding:28px;
+    border-radius:20px;
+}
+
+.owner-card h3{
+    font-size:23px;
+    margin-bottom:8px;
+}
+
+/* FOOTER */
+footer{
+    margin-top:50px;
+    background:#0b1120;
+    color:white;
+    padding:45px 20px;
+}
+
+.footer-inner{
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:35px;
+}
+
+footer h3{
+    margin-bottom:14px;
+}
+
+footer p,
+footer li{
+    color:#9ca3af;
+    font-size:13px;
+    line-height:1.9;
+}
+
+footer ul{
+    list-style:none;
+}
+
+.copyright{
+    max-width:1250px;
+    margin:30px auto 0;
+    padding-top:20px;
+    border-top:1px solid #1f2937;
+    color:#6b7280;
+    font-size:12px;
+}
+
+/* CART */
+.overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    z-index:1999;
+}
+
+.cart-panel{
+    position:fixed;
+    right:-430px;
+    top:0;
+    width:min(430px,100%);
+    height:100%;
+    background:white;
+    z-index:2000;
+    transition:.35s;
+    display:flex;
+    flex-direction:column;
+}
+
+.cart-panel.open{
+    right:0;
+}
+
+.overlay.show{
+    display:block;
+}
+
+.cart-head{
+    padding:20px;
+    border-bottom:1px solid #eee;
+    display:flex;
+    justify-content:space-between;
+}
+
+.close{
+    border:0;
+    background:#f3f4f6;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.cart-items{
+    flex:1;
+    overflow:auto;
+    padding:20px;
+}
+
+.cart-item{
+    display:flex;
+    gap:12px;
+    padding:13px 0;
+    border-bottom:1px solid #eee;
+}
+
+.cart-item img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    background:#f8fafc;
+    border-radius:10px;
+}
+
+.cart-item h4{
+    font-size:13px;
+}
+
+.remove{
+    border:0;
+    background:none;
+    color:#ef4444;
+    cursor:pointer;
+    font-size:11px;
+    margin-top:7px;
+}
+
+.cart-bottom{
+    padding:20px;
+    border-top:1px solid #eee;
+}
+
+.total{
+    display:flex;
+    justify-content:space-between;
+    font-size:20px;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.checkout{
+    width:100%;
+    padding:15px;
+    border:0;
+    border-radius:12px;
+    background:linear-gradient(135deg,#4f46e5,#2563eb);
+    color:white;
+    font-weight:800;
+    cursor:pointer;
+}
+
+/* CHECKOUT */
+.checkout-box{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    z-index:3000;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+}
+
+.checkout-card{
+    background:white;
+    width:min(550px,100%);
+    max-height:90vh;
+    overflow:auto;
+    border-radius:22px;
+    padding:25px;
+}
+
+.checkout-card h2{
+    margin-bottom:18px;
+}
+
+.field{
+    margin-bottom:14px;
+}
+
+.field label{
+    display:block;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:6px;
+}
+
+.field input,
+.field textarea,
+.field select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+}
+
+.place-order{
+    width:100%;
+    border:0;
+    padding:14px;
+    background:#111827;
+    color:white;
+    border-radius:11px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+    .products{
+        grid-template-columns:repeat(3,1fr);
     }
 
-    nav{
-        display:none;
+    .deals{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-inner{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:650px){
+    .nav{
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .search{
+        order:3;
+        flex-basis:100%;
+    }
+
+    .nav-btn{
+        padding:9px 11px;
     }
 
     .hero{
-        min-height:70vh;
+        padding:12px;
     }
 
-    .hero h1{
-        font-size:54px;
-        letter-spacing:-3px;
+    .hero-box{
+        padding:32px 25px;
+        min-height:350px;
     }
 
-    section{
-        width:94%;
-        margin:80px auto;
+    .section{
+        padding:0 12px;
     }
 
-    .section-heading h2{
-        font-size:30px;
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        gap:11px;
     }
 
-    .owner{
-        grid-template-columns:1fr;
-        padding:22px;
+    .product-img{
+        height:165px;
     }
 
-    .owner-image{
-        min-height:220px;
+    .product-img img{
+        max-height:145px;
     }
 
-    .cards{
-        grid-template-columns:1fr;
+    .product-info{
+        padding:12px;
     }
 
-    .before-after{
-        grid-template-columns:1fr;
-    }
-
-    .admin-grid{
-        grid-template-columns:1fr;
-    }
-
-}
-
-
-/* SMALL PHONES */
-
-@media(max-width:480px){
-
-    .logo{
-        font-size:17px;
-    }
-
-    .hero h1{
-        font-size:43px;
-    }
-
-    .hero p{
+    .product h3{
         font-size:13px;
     }
 
-    .owner-content h3{
-        font-size:27px;
+    .price strong{
+        font-size:17px;
     }
 
-    .admin-panel{
-        padding:18px;
+    .deals{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
     }
 
+    .deal{
+        padding:15px;
+        min-height:125px;
+    }
+
+    .deal h3{
+        font-size:15px;
+    }
+
+    .about{
+        padding:28px 20px;
+    }
+
+    .footer-inner{
+        grid-template-columns:1fr 1fr;
+    }
 }
-
 </style>
 </head>
 
-
 <body>
 
-<div class="grid"></div>
-
-
-<!-- =========================
-     HEADER
-========================= -->
+<div class="topbar">
+    🚚 FREE DELIVERY • 🔥 SPECIAL DEALS • 💳 SECURE CHECKOUT
+</div>
 
 <header>
+    <div class="nav">
 
-    <div class="logo">
-        TEAM <span>TORNADO</span>
+        <div class="logo">GYANI STORE</div>
+
+        <div class="search">
+            <input id="searchInput" type="text"
+            placeholder="Search products, brands and categories..."
+            onkeyup="searchProducts()">
+            <button>🔍</button>
+        </div>
+
+        <button class="nav-btn">❤️</button>
+
+        <button class="nav-btn cart-btn" onclick="openCart()">
+            🛒 Cart
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+
     </div>
 
-    <nav>
-
-        <a href="#about">About</a>
-
-        <a href="#videos">Videos</a>
-
-        <a href="#telegram">Telegram</a>
-
-        <a href="#instagram">Instagram</a>
-
-        <a href="#screenshots">Screenshots</a>
-
-        <a href="#beforeafter">Before/After</a>
-
-    </nav>
-
+    <div class="categories">
+        <div class="category-inner">
+            <button class="active" onclick="filterCategory('all',this)">All</button>
+            <button onclick="filterCategory('electronics',this)">Electronics</button>
+            <button onclick="filterCategory('mobile',this)">Mobiles</button>
+            <button onclick="filterCategory('audio',this)">Audio</button>
+            <button onclick="filterCategory('watch',this)">Smart Watches</button>
+            <button onclick="filterCategory('accessories',this)">Accessories</button>
+            <button onclick="filterCategory('gaming',this)">Gaming</button>
+        </div>
+    </div>
 </header>
 
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-box">
 
-<!-- =========================
-     HERO
-========================= -->
+        <div class="hero-content">
 
-<div class="hero">
+            <span class="badge">✨ PREMIUM SHOPPING EXPERIENCE</span>
 
-    <div class="badge">
-        ⚡ TEAM TORNADO DIGITAL PORTFOLIO
+            <h1>Everything You Need. One Smart Store.</h1>
+
+            <p>
+                Discover trending electronics, accessories, smart gadgets
+                and premium products at exciting prices.
+            </p>
+
+            <a href="#products" class="hero-btn">
+                Shop Now →
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- DEALS -->
+<section class="section">
+
+    <div class="section-head">
+        <h2>🔥 Today's Deals</h2>
+        <span class="view">View All →</span>
     </div>
 
-    <h1>
-        TEAM<br>
-        <span>TORNADO</span>
-    </h1>
+    <div class="deals">
 
-    <p>
-        Welcome to the official Team Tornado Portfolio.
-        Explore our videos, Telegram posts, Instagram work,
-        screenshots and project transformations.
-    </p>
+        <div class="deal">
+            <h3>Up to 50% OFF</h3>
+            <p>On selected electronics</p>
+        </div>
 
-    <a href="#about" class="hero-btn">
-        EXPLORE PORTFOLIO
-    </a>
+        <div class="deal">
+            <h3>Smart Gadgets</h3>
+            <p>Premium products at better prices</p>
+        </div>
+
+        <div class="deal">
+            <h3>Audio Sale</h3>
+            <p>Headphones & earbuds deals</p>
+        </div>
+
+        <div class="deal">
+            <h3>Gaming Zone</h3>
+            <p>Gear up your setup</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PRODUCTS -->
+<section class="section" id="products">
+
+    <div class="section-head">
+        <h2>🛍️ Featured Products</h2>
+        <span class="view">Explore →</span>
+    </div>
+
+    <div class="products" id="productGrid">
+
+        <!-- PRODUCT 1 -->
+        <div class="product"
+             data-category="mobile"
+             data-name="Premium Smartphone">
+
+            <div class="product-img">
+                <span class="discount">25% OFF</span>
+                <button class="heart">♡</button>
+
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80">
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">Mobile</span>
+
+                <h3>Premium Smartphone 5G</h3>
+
+                <div class="rating">★★★★★ <small>(128)</small></div>
+
+                <div class="price">
+                    <strong>₹24,999</strong>
+                    <span class="old">₹32,999</span>
+                </div>
+
+                <button class="add"
+                onclick="addToCart('Premium Smartphone 5G',24999,'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80')">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+        <div class="product"
+             data-category="watch"
+             data-name="Smart Watch Series">
+
+            <div class="product-img">
+                <span class="discount">18% OFF</span>
+                <button class="heart">♡</button>
+
+                <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=600&q=80">
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">Smart Watch</span>
+
+                <h3>Smart Watch Series 11 GPS</h3>
+
+                <div class="rating">★★★★★ <small>(149)</small></div>
+
+                <div class="price">
+                    <strong>₹39,999</strong>
+                    <span class="old">₹48,999</span>
+                </div>
+
+                <button class="add"
+                onclick="addToCart('Smart Watch Series 11 GPS',39999,'https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=600&q=80')">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+        <div class="product"
+             data-category="audio"
+             data-name="Wireless Earbuds">
+
+            <div class="product-img">
+                <span class="discount">40% OFF</span>
+                <button class="heart">♡</button>
+
+                <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=600&q=80">
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">Audio</span>
+
+                <h3>Premium Wireless Earbuds</h3>
+
+                <div class="rating">★★★★☆ <small>(87)</small></div>
+
+                <div class="price">
+                    <strong>₹2,499</strong>
+                    <span class="old">₹4,199</span>
+                </div>
+
+                <button class="add"
+                onclick="addToCart('Premium Wireless Earbuds',2499,'https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=600&q=80')">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+        <div class="product"
+             data-category="accessories"
+             data-name="Fast Charging Cable">
+
+            <div class="product-img">
+                <span class="discount">60% OFF</span>
+                <button class="heart">♡</button>
+
+                <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=600&q=80">
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">Accessories</span>
+
+                <h3>Fast Charging Type-C Cable</h3>
+
+                <div class="rating">★★★★★ <small>(213)</small></div>
+
+                <div class="price">
+                    <strong>₹399</strong>
+                    <span class="old">₹999</span>
+                </div>
+
+                <button class="add"
+                onclick="addToCart('Fast Charging Type-C Cable',399,'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=600&q=80')">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+        <div class="product"
+             data-category="gaming"
+             data-name="Gaming Headset">
+
+            <div class="product-img">
+                <span class="discount">35% OFF</span>
+                <button class="heart">♡</button>
+
+                <img src="https://images.unsplash.com/photo-1599669454699-248893623440?auto=format&fit=crop&w=600&q=80">
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">Gaming</span>
+
+                <h3>RGB Gaming Headset</h3>
+
+                <div class="rating">★★★★★ <small>(64)</small></div>
+
+                <div class="price">
+                    <strong>₹1,699</strong>
+                    <span class="old">₹2,599</span>
+                </div>
+
+                <button class="add"
+                onclick="addToCart('RGB Gaming Headset',1699,'https://images.unsplash.com/photo-1599669454699-248893623440?auto=format&fit=crop&w=600&q=80')">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+        </div>
+
+
+        <!-- PRODUCT 6 -->
+        <div class="product"
+             data-category="electronics"
+             data-name="Bluetooth Speaker">
+
+            <div class="product-img">
+                <span class="discount">30% OFF</span>
+                <button class="heart">♡</button>
+
+                <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80">
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">Electronics</span>
+
+                <h3>Portable Bluetooth Speaker</h3>
+
+                <div class="rating">★★★★☆ <small>(91)</small></div>
+
+                <div class="price">
+                    <strong>₹1,999</strong>
+                    <span class="old">₹2,899</span>
+                </div>
+
+                <button class="add"
+                onclick="addToCart('Portable Bluetooth Speaker',1999,'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80')">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+        </div>
+
+
+        <!-- PRODUCT 7 -->
+        <div class="product"
+             data-category="accessories"
+             data-name="Wireless Charger">
+
+            <div class="product-img">
+                <span class="discount">28% OFF</span>
+                <button class="heart">♡</button>
+
+                <img src="https://images.unsplash.com/photo-1609592424221-5c6c3b4e1f15?auto=format&fit=crop&w=600&q=80">
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">Accessories</span>
+
+                <h3>Fast Wireless Charger</h3>
+
+                <div class="rating">★★★★★ <small>(45)</small></div>
+
+                <div class="price">
+                    <strong>₹899</strong>
+                    <span class="old">₹1,249</span>
+                </div>
+
+                <button class="add"
+                onclick="addToCart('Fast Wireless Charger',899,'https://images.unsplash.com/photo-1609592424221-5c6c3b4e1f15?auto=format&fit=crop&w=600&q=80')">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+        </div>
+
+
+        <!-- PRODUCT 8 -->
+        <div class="product"
+             data-category="electronics"
+             data-name="Power Bank">
+
+            <div class="product-img">
+                <span class="discount">32% OFF</span>
+                <button class="heart">♡</button>
+
+                <img src="https://images.unsplash.com/photo-1609592424371-9a6b6c17e5d5?auto=format&fit=crop&w=600&q=80">
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">Electronics</span>
+
+                <h3>20,000mAh Fast Power Bank</h3>
+
+                <div class="rating">★★★★☆ <small>(76)</small></div>
+
+                <div class="price">
+                    <strong>₹1,299</strong>
+                    <span class="old">₹1,899</span>
+                </div>
+
+                <button class="add"
+                onclick="addToCart('20,000mAh Fast Power Bank',1299,'https://images.unsplash.com/photo-1609592424371-9a6b6c17e5d5?auto=format&fit=crop&w=600&q=80')">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- OWNER -->
+<section class="section">
+
+    <div class="about">
+
+        <div>
+            <span class="badge">ABOUT THE STORE</span>
+
+            <h2>Built With Quality & Trust.</h2>
+
+            <p>
+                Gyani Store is designed to provide customers with a simple,
+                modern and reliable online shopping experience. Explore
+                products, compare offers and place your order easily.
+            </p>
+        </div>
+
+        <div class="owner-card">
+
+            <h3>👑 Owner & Founder</h3>
+
+            <p>
+                <strong>GYANI BABA</strong><br><br>
+                Founder of Gyani Store. Our goal is to provide customers
+                with quality products, attractive deals and a smooth
+                shopping experience.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-inner">
+
+        <div>
+            <h3>GYANI STORE</h3>
+            <p>
+                Premium products. Smart deals. Simple shopping.
+            </p>
+        </div>
+
+        <div>
+            <h3>Shopping</h3>
+            <ul>
+                <li>All Products</li>
+                <li>Today's Deals</li>
+                <li>New Arrivals</li>
+                <li>Best Sellers</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Customer Care</h3>
+            <ul>
+                <li>Contact Us</li>
+                <li>Shipping</li>
+                <li>Returns</li>
+                <li>Support</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Contact</h3>
+            <ul>
+                <li>📧 support@example.com</li>
+                <li>💬 WhatsApp Support</li>
+                <li>📱 Telegram Support</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 Gyani Store. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+<!-- CART -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<div class="cart-panel" id="cartPanel">
+
+    <div class="cart-head">
+        <h2>🛒 Your Cart</h2>
+        <button class="close" onclick="closeCart()">✕</button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+
+        <p style="text-align:center;color:#777;margin-top:30px;">
+            Your cart is empty.
+        </p>
+
+    </div>
+
+    <div class="cart-bottom">
+
+        <div class="total">
+            <span>Total</span>
+            <span id="cartTotal">₹0</span>
+        </div>
+
+        <button class="checkout" onclick="openCheckout()">
+            Proceed to Checkout →
+        </button>
+
+    </div>
 
 </div>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- CHECKOUT -->
+<div class="checkout-box" id="checkoutBox">
 
-<section id="about">
+    <div class="checkout-card">
 
-    <div class="section-heading">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h2>🛍️ Checkout</h2>
+            <button class="close" onclick="closeCheckout()">✕</button>
+        </div>
 
-        <h2>Owner & Founder</h2>
+        <div class="field">
+            <label>Full Name</label>
+            <input id="customerName" placeholder="Enter your name">
+        </div>
 
-        <p>
-            The person behind Team Tornado
-        </p>
+        <div class="field">
+            <label>Mobile Number</label>
+            <input id="customerPhone" type="tel" placeholder="Enter mobile number">
+        </div>
+
+        <div class="field">
+            <label>Delivery Address</label>
+            <textarea id="customerAddress" rows="4"
+            placeholder="House / Street / Area / City / PIN"></textarea>
+        </div>
+
+        <div class="field">
+            <label>Payment Method</label>
+
+            <select id="paymentMethod">
+                <option>Cash on Delivery</option>
+                <option>UPI</option>
+                <option>Online Payment</option>
+            </select>
+
+        </div>
+
+        <div style="background:#f3f4f6;padding:15px;border-radius:12px;margin-bottom:15px;">
+            <strong>Order Total:</strong>
+            <span id="checkoutTotal">₹0</span>
+        </div>
+
+        <button class="place-order" onclick="placeOrder()">
+            Place Order
+        </button>
 
     </div>
 
+</div>
 
-    <div class="owner">
 
-        <div class="owner-image">
-            👑
-        </div>
+<script>
 
+let cart = [];
 
-        <div class="owner-content">
 
-            <h3>GYANI BABA</h3>
+/* ADD TO CART */
+function addToCart(name, price, image){
 
-            <div class="owner-role">
-                OWNER & FOUNDER — TEAM TORNADO
-            </div>
+    cart.push({
+        name:name,
+        price:price,
+        image:image
+    });
 
-            <p>
-                Welcome to Team Tornado. This portfolio
-                represents our digital projects, creative
-                work and online services.
-            </p>
+    updateCart();
 
-            <p>
-                Here you can explore selected videos,
-                Telegram posts, Instagram work, screenshots
-                and before & after transformations.
-            </p>
+    openCart();
+}
 
-        </div>
 
-    </div>
+/* UPDATE CART */
+function updateCart(){
 
-</section>
+    document.getElementById("cartCount").innerText = cart.length;
 
+    let container = document.getElementById("cartItems");
 
-<!-- =========================
-     VIDEO SHOWCASE
-========================= -->
+    if(cart.length === 0){
 
-<section id="videos">
+        container.innerHTML = `
+        <p style="text-align:center;color:#777;margin-top:30px;">
+        Your cart is empty.
+        </p>`;
 
-    <div class="section-heading">
+        document.getElementById("cartTotal").innerText = "₹0";
 
-        <h2>🎥 Video Showcase</h2>
+        return;
+    }
 
-        <p>
-            Featured project videos
-        </p>
+    let total = 0;
 
-    </div>
+    container.innerHTML = "";
 
+    cart.forEach((item,index)=>{
 
-    <div class="cards">
+        total += item.price;
 
+        container.innerHTML += `
 
-        <div class="card">
+        <div class="cart-item">
 
-            <div class="media">
+            <img src="${item.image}">
 
-                <video controls poster="video1-cover.jpg">
+            <div style="flex:1">
 
-                    <source
-                        src="video1.mp4"
-                        type="video/mp4"
-                    >
+                <h4>${item.name}</h4>
 
-                    Your browser does not support video.
+                <strong>₹${item.price.toLocaleString("en-IN")}</strong>
 
-                </video>
+                <br>
 
-            </div>
-
-            <span class="tag">
-                VIDEO
-            </span>
-
-            <h3>
-                Project Video 01
-            </h3>
-
-            <p>
-                Add your first project demonstration here.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="media">
-
-                <video controls poster="video2-cover.jpg">
-
-                    <source
-                        src="video2.mp4"
-                        type="video/mp4"
-                    >
-
-                </video>
-
-            </div>
-
-            <span class="tag">
-                VIDEO
-            </span>
-
-            <h3>
-                Project Video 02
-            </h3>
-
-            <p>
-                Add your second project video here.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="media">
-
-                <video controls poster="video3-cover.jpg">
-
-                    <source
-                        src="video3.mp4"
-                        type="video/mp4"
-                    >
-
-                </video>
-
-            </div>
-
-            <span class="tag">
-                VIDEO
-            </span>
-
-            <h3>
-                Project Video 03
-            </h3>
-
-            <p>
-                Add your third project video here.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     TELEGRAM POSTS
-========================= -->
-
-<section id="telegram">
-
-    <div class="section-heading">
-
-        <h2>✈️ Telegram Posts</h2>
-
-        <p>
-            Selected Telegram posts and promotions
-        </p>
-
-    </div>
-
-
-    <div class="cards">
-
-
-        <div class="card">
-
-            <div class="media">
-
-                <img
-                    src="telegram1.jpg"
-                    alt="Telegram Post 1"
-                >
-
-            </div>
-
-            <span class="tag">
-                TELEGRAM
-            </span>
-
-            <h3>
-                Telegram Post 01
-            </h3>
-
-            <p>
-                Add your Telegram post screenshot here.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="media">
-
-                <img
-                    src="telegram2.jpg"
-                    alt="Telegram Post 2"
-                >
-
-            </div>
-
-            <span class="tag">
-                TELEGRAM
-            </span>
-
-            <h3>
-                Telegram Post 02
-            </h3>
-
-            <p>
-                Add another Telegram post here.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="media">
-
-                <img
-                    src="telegram3.jpg"
-                    alt="Telegram Post 3"
-                >
-
-            </div>
-
-            <span class="tag">
-                TELEGRAM
-            </span>
-
-            <h3>
-                Telegram Post 03
-            </h3>
-
-            <p>
-                Add your third Telegram post here.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     INSTAGRAM
-========================= -->
-
-<section id="instagram">
-
-    <div class="section-heading">
-
-        <h2>📸 Instagram</h2>
-
-        <p>
-            Instagram content and creative work
-        </p>
-
-    </div>
-
-
-    <div class="cards">
-
-
-        <div class="card">
-
-            <div class="media">
-
-                <img
-                    src="instagram1.jpg"
-                    alt="Instagram Post 1"
-                >
-
-            </div>
-
-            <span class="tag">
-                INSTAGRAM
-            </span>
-
-            <h3>
-                Instagram Post 01
-            </h3>
-
-            <p>
-                Add your Instagram screenshot here.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="media">
-
-                <img
-                    src="instagram2.jpg"
-                    alt="Instagram Post 2"
-                >
-
-            </div>
-
-            <span class="tag">
-                INSTAGRAM
-            </span>
-
-            <h3>
-                Instagram Post 02
-            </h3>
-
-            <p>
-                Add another Instagram project here.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="media">
-
-                <img
-                    src="instagram3.jpg"
-                    alt="Instagram Post 3"
-                >
-
-            </div>
-
-            <span class="tag">
-                INSTAGRAM
-            </span>
-
-            <h3>
-                Instagram Post 03
-            </h3>
-
-            <p>
-                Add your third Instagram project here.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     SCREENSHOTS
-========================= -->
-
-<section id="screenshots">
-
-    <div class="section-heading">
-
-        <h2>🖼️ Screenshot Showcase</h2>
-
-        <p>
-            Selected project screenshots
-        </p>
-
-    </div>
-
-
-    <div class="cards">
-
-
-        <div class="card">
-
-            <div class="media">
-
-                <img
-                    src="screenshot1.jpg"
-                    alt="Screenshot 1"
-                >
-
-            </div>
-
-            <h3>
-                Project Screenshot 01
-            </h3>
-
-            <p>
-                Add your project screenshot.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="media">
-
-                <img
-                    src="screenshot2.jpg"
-                    alt="Screenshot 2"
-                >
-
-            </div>
-
-            <h3>
-                Project Screenshot 02
-            </h3>
-
-            <p>
-                Add another screenshot.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="media">
-
-                <img
-                    src="screenshot3.jpg"
-                    alt="Screenshot 3"
-                >
-
-            </div>
-
-            <h3>
-                Project Screenshot 03
-            </h3>
-
-            <p>
-                Add another project screenshot.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     BEFORE & AFTER
-========================= -->
-
-<section id="beforeafter">
-
-    <div class="section-heading">
-
-        <h2>🔄 Before & After</h2>
-
-        <p>
-            Project transformation showcase
-        </p>
-
-    </div>
-
-
-    <div class="before-after">
-
-
-        <div class="ba-card">
-
-            <div class="ba-label">
-                BEFORE
-            </div>
-
-            <img
-                src="before1.jpg"
-                alt="Before Screenshot"
-            >
-
-        </div>
-
-
-        <div class="ba-card">
-
-            <div class="ba-label">
-                AFTER
-            </div>
-
-            <img
-                src="after1.jpg"
-                alt="After Screenshot"
-            >
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     ADMIN PANEL
-========================= -->
-
-<section id="admin">
-
-    <div class="section-heading">
-
-        <h2>🛠️ Admin Panel</h2>
-
-        <p>
-            Portfolio management interface
-        </p>
-
-    </div>
-
-
-    <div class="admin-panel">
-
-        <div class="admin-grid">
-
-
-            <!-- VIDEO -->
-
-            <div class="admin-box">
-
-                <h3>
-                    🎥 Add Video
-                </h3>
-
-                <p>
-                    Select a video and add its title.
-                </p>
-
-                <input
-                    type="file"
-                    accept="video/*"
-                >
-
-                <input
-                    type="text"
-                    placeholder="Video Title"
-                >
-
-                <textarea
-                    placeholder="Video Description"
-                ></textarea>
-
-                <button class="admin-btn">
-                    ADD VIDEO
+                <button class="remove"
+                onclick="removeItem(${index})">
+                    Remove
                 </button>
 
             </div>
 
-
-            <!-- TELEGRAM -->
-
-            <div class="admin-box">
-
-                <h3>
-                    ✈️ Add Telegram Post
-                </h3>
-
-                <p>
-                    Add Telegram post screenshot.
-                </p>
-
-                <input
-                    type="file"
-                    accept="image/*"
-                >
-
-                <input
-                    type="text"
-                    placeholder="Telegram Post Title"
-                >
-
-                <textarea
-                    placeholder="Post Description"
-                ></textarea>
-
-                <button class="admin-btn">
-                    ADD TELEGRAM POST
-                </button>
-
-            </div>
-
-
-            <!-- INSTAGRAM -->
-
-            <div class="admin-box">
-
-                <h3>
-                    📸 Add Instagram
-                </h3>
-
-                <p>
-                    Add Instagram post screenshot.
-                </p>
-
-                <input
-                    type="file"
-                    accept="image/*"
-                >
-
-                <input
-                    type="text"
-                    placeholder="Instagram Post Title"
-                >
-
-                <textarea
-                    placeholder="Post Description"
-                ></textarea>
-
-                <button class="admin-btn">
-                    ADD INSTAGRAM
-                </button>
-
-            </div>
-
-
-            <!-- SCREENSHOT -->
-
-            <div class="admin-box">
-
-                <h3>
-                    🖼️ Add Screenshot
-                </h3>
-
-                <p>
-                    Add portfolio screenshot.
-                </p>
-
-                <input
-                    type="file"
-                    accept="image/*"
-                >
-
-                <input
-                    type="text"
-                    placeholder="Screenshot Title"
-                >
-
-                <button class="admin-btn">
-                    ADD SCREENSHOT
-                </button>
-
-            </div>
-
-
-            <!-- BEFORE -->
-
-            <div class="admin-box">
-
-                <h3>
-                    🔴 Before Image
-                </h3>
-
-                <p>
-                    Upload the before image.
-                </p>
-
-                <input
-                    type="file"
-                    accept="image/*"
-                >
-
-                <button class="admin-btn">
-                    ADD BEFORE IMAGE
-                </button>
-
-            </div>
-
-
-            <!-- AFTER -->
-
-            <div class="admin-box">
-
-                <h3>
-                    🟢 After Image
-                </h3>
-
-                <p>
-                    Upload the after image.
-                </p>
-
-                <input
-                    type="file"
-                    accept="image/*"
-                >
-
-                <button class="admin-btn">
-                    ADD AFTER IMAGE
-                </button>
-
-            </div>
-
-
         </div>
 
-    </div>
+        `;
 
-</section>
+    });
+
+    document.getElementById("cartTotal").innerText =
+        "₹" + total.toLocaleString("en-IN");
+}
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+/* REMOVE */
+function removeItem(index){
 
-<footer>
+    cart.splice(index,1);
 
-    © 2026 <strong>Team Tornado</strong>
+    updateCart();
+}
 
-    <br><br>
 
-    Owner & Founder — Owner Captain Founder Gyani Baba
+/* OPEN CART */
+function openCart(){
 
-</footer>
+    document.getElementById("cartPanel").classList.add("open");
 
+    document.getElementById("overlay").classList.add("show");
+}
+
+
+/* CLOSE CART */
+function closeCart(){
+
+    document.getElementById("cartPanel").classList.remove("open");
+
+    document.getElementById("overlay").classList.remove("show");
+}
+
+
+/* CHECKOUT */
+function openCheckout(){
+
+    if(cart.length === 0){
+
+        alert("Please add a product to your cart first.");
+
+        return;
+    }
+
+    let total = cart.reduce((sum,item)=>sum+item.price,0);
+
+    document.getElementById("checkoutTotal").innerText =
+        "₹" + total.toLocaleString("en-IN");
+
+    document.getElementById("checkoutBox").style.display="flex";
+
+}
+
+
+function closeCheckout(){
+
+    document.getElementById("checkoutBox").style.display="none";
+
+}
+
+
+/* PLACE ORDER */
+function placeOrder(){
+
+    let name =
+        document.getElementById("customerName").value.trim();
+
+    let phone =
+        document.getElementById("customerPhone").value.trim();
+
+    let address =
+        document.getElementById("customerAddress").value.trim();
+
+    if(!name || !phone || !address){
+
+        alert("Please fill all delivery details.");
+
+        return;
+    }
+
+    alert(
+        "Thank you " + name +
+        "! Your order request has been received."
+    );
+
+    cart = [];
+
+    updateCart();
+
+    closeCheckout();
+
+    closeCart();
+
+}
+
+
+/* SEARCH */
+function searchProducts(){
+
+    let value =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    document.querySelectorAll(".product")
+    .forEach(product=>{
+
+        let name =
+            product.dataset.name.toLowerCase();
+
+        if(name.includes(value)){
+
+            product.style.display="block";
+
+        }else{
+
+            product.style.display="none";
+
+        }
+
+    });
+
+}
+
+
+/* CATEGORY FILTER */
+function filterCategory(category,button){
+
+    document.querySelectorAll(".category-inner button")
+    .forEach(btn=>btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    document.querySelectorAll(".product")
+    .forEach(product=>{
+
+        if(
+            category === "all" ||
+            product.dataset.category === category
+        ){
+
+            product.style.display="block";
+
+        }else{
+
+            product.style.display="none";
+
+        }
+
+    });
+
+}
+
+</script>
 
 </body>
 </html>
